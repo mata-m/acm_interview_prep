@@ -1,0 +1,12 @@
+input: ./
+output: .retype
+url: mata-m.github.io/acm_interview_prep
+branding:
+  title: ACM Interview Prep
+  label: Docs
+links:
+- text: Welcome
+  link: /README.md
+  icon: home
+footer:
+  copyright: "&copy; Copyright {{ 2021 }}. All rights reserved."
