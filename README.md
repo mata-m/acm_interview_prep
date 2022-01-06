@@ -1,1 +1,3 @@
 # Welcome to ACM's Interview Prep
+The idea behind this guide is to introduce you to templates and common patterns for questions seen in leetcode-style software interviews. Often times answers for a question within a certain category (Binary Search, DFS, etc) can be reduced to a common template with small variations. There also common patterns that reoccur such as dummy heads with Linked
+List problems, or sliding windows in array problems.
