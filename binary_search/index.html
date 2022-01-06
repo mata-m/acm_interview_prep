@@ -9,24 +9,28 @@
     <!-- Primary Meta Tags -->
     <title>Binary Search</title>
     <meta name="title" content="Binary Search">
+    <meta name="description" content="Binary Search problems can actually be generalized to \"Find the minimum/maximum value for which a condition is satisfied.\"" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mata-m.github.io/acm_interview_prep/binary_search/">
     <meta property="og:title" content="Binary Search">
+    <meta property="og:description" content="Binary Search problems can actually be generalized to \"Find the minimum/maximum value for which a condition is satisfied.\"">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://mata-m.github.io/acm_interview_prep/binary_search/">
     <meta property="twitter:title" content="Binary Search">
+    <meta property="twitter:description" content="Binary Search problems can actually be generalized to \"Find the minimum/maximum value for which a condition is satisfied.\"">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/acm_interview_prep/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/acm_interview_prep/resources/css/retype.css?v=1.11.1.692822236583" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/acm_interview_prep/resources/css/retype.css?v=1.11.2.694749938469" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/acm_interview_prep/resources/js/config.js?v=1.11.1.692822236583" defer data-turbo-track="reload"></script>
-    <script type="text/javascript" src="/acm_interview_prep/resources/js/retype.js?v=1.11.1" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/acm_interview_prep/resources/js/lunr.js?v=1.11.1.692822236583" defer></script>
+    <script type="text/javascript" src="/acm_interview_prep/resources/js/config.js?v=1.11.2.694749938469" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/acm_interview_prep/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/acm_interview_prep/resources/js/lunr.js?v=1.11.2.694749938469" defer></script>
+    <script id="prism-js" type="text/javascript" src="/acm_interview_prep/resources/js/prism.js?v=1.11.2.694749938469" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -187,6 +191,37 @@
         <span>Binary Search</span>
     </h1>
 </doc-anchor-target>
+<p>Binary Search problems can actually be generalized to <strong>&quot;Find the minimum/maximum value for which a condition is satisfied.&quot;</strong></p>
+<doc-anchor-target id="template">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#template">#</doc-anchor-trigger>
+        <span>Template</span>
+    </h2>
+</doc-anchor-target>
+<p>Swap &quot;right = mid - 1&quot; &amp; &quot;left = mid + 1&quot; in the template below to instead search
+for the <strong>maximum</strong> value for which a condition is satisfied.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">Find the <strong>minimum</strong> value for which a condition is satisfied</div>
+<pre class="language-python"><code v-pre class="language-python">def binarySearch(nums, target, isConditionTrue):
+    left, right = 0, len(nums) - 1 # Valid search space
+    boundaryIdx = -1 # Last idx for which condition was satisfied
+    while left &lt;= right:
+        mid = (left + right) // 2
+        if isConditionTrue(mid, target): # Cond must be true of target &amp; 
+                                         # all values to right of target
+            boundaryIdx = mid
+            right = mid - 1 # Look to the left 
+        else: # Disregard this value
+            left = mid + 1 # Look to the right
+    return boundaryIdx</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="worked-example">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#worked-example">#</doc-anchor-trigger>
+        <span>Worked Example</span>
+    </h2>
+</doc-anchor-target>
+<p>Insert animation here</p>
 
 
 
@@ -259,6 +294,6 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Binary Search", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Binary Search", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>
