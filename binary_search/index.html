@@ -25,12 +25,12 @@
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/acm_interview_prep/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/acm_interview_prep/resources/css/retype.css?v=1.11.2.694749938469" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/acm_interview_prep/resources/css/retype.css?v=1.11.2.694754652651" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/acm_interview_prep/resources/js/config.js?v=1.11.2.694749938469" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/acm_interview_prep/resources/js/config.js?v=1.11.2.694754652651" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/acm_interview_prep/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/acm_interview_prep/resources/js/lunr.js?v=1.11.2.694749938469" defer></script>
-    <script id="prism-js" type="text/javascript" src="/acm_interview_prep/resources/js/prism.js?v=1.11.2.694749938469" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/acm_interview_prep/resources/js/lunr.js?v=1.11.2.694754652651" defer></script>
+    <script id="prism-js" type="text/javascript" src="/acm_interview_prep/resources/js/prism.js?v=1.11.2.694754652651" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -198,7 +198,10 @@
         <span>Template</span>
     </h2>
 </doc-anchor-target>
-<p>Swap &quot;right = mid - 1&quot; &amp; &quot;left = mid + 1&quot; in the template below to instead search
+<p>This template is pretty much all you need to memorize for interview problems that can be reduced to Binary Search.</p>
+<p>The most important part to figure out is the search space and you&#x27;ll notice that unlike in regular Binary Search, the search space doesn&#x27;t need to be given to you in the form of an array.
+An example of this can be seen <a href="https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/">here</a> where you are given an array of weights but the actual search space is possible truck capacities.</p>
+<p>Swap &quot;right = mid - 1&quot; &amp; &quot;left = mid + 1&quot; in the <strong>first</strong> template below to instead search
 for the <strong>maximum</strong> value for which a condition is satisfied.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title">Find the <strong>minimum</strong> value for which a condition is satisfied</div>
@@ -213,7 +216,22 @@ for the <strong>maximum</strong> value for which a condition is satisfied.</p>
             right = mid - 1 # Look to the left 
         else: # Disregard this value
             left = mid + 1 # Look to the right
-    return boundaryIdx</code></pre>
+    return boundaryIdx # Don't forget case where target not found, etc..</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">Similar template from <a href="https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-binary-search-template-solved-many-problems">popular LC post</a></div>
+<pre class="language-python"><code v-pre class="language-python">def binary_search(array) -&gt; int:
+    def condition(value) -&gt; bool:
+        pass
+
+    left, right = min(search_space), max(search_space) # could be [0, n], [1, n] etc. Depends on problem
+    while left &lt; right:
+        mid = left + (right - left) // 2
+        if condition(mid):
+            right = mid
+        else:
+            left = mid + 1
+    return left</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="worked-example">
     <h2>
